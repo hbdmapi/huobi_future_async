@@ -18,7 +18,7 @@ huobi_future_async = { git = "https://github.com/hbdmapi/huobi_future_async.git"
 
 Use at your own risk. We will not be responsible for your investment losses.
 
-## Quick Start
+## Example
 
 ```shell
 git clone https://github.com/hbdmapi/huobi_future_async.git
