@@ -636,9 +636,9 @@ pub enum WebsocketEvent {
     SubStatus(SubStatus),
 
     //Market
+    IncrementalOrderBook(WSMarketResponse<IncrementalOrderBook>),
     OrderBook(WSMarketResponse<OrderBook>),
     BBO(WSMarketResponse<BBO>),
-    IncrementalOrderBook(WSMarketResponse<IncrementalOrderBook>),
     Kline(WSMarketResponse<Kline>),
     TradeDetail(WSMarketResponse<TradeDetail>),
 

@@ -109,9 +109,9 @@ impl HuobiWebsocket {
     async fn rx_handler(&mut self, subs: &HashMap<Subscription, Vec<&str>>) -> Fallible<()> {
         while let Some(msg) = self.try_next().await? {
             match msg {
+                WebsocketEvent::IncrementalOrderBook(msg) => (self.handler)(WebsocketEvent::IncrementalOrderBook(msg))?,
                 WebsocketEvent::OrderBook(msg) => (self.handler)(WebsocketEvent::OrderBook(msg))?,
                 WebsocketEvent::BBO(msg) => (self.handler)(WebsocketEvent::BBO(msg))?,
-                WebsocketEvent::IncrementalOrderBook(msg) => (self.handler)(WebsocketEvent::IncrementalOrderBook(msg))?,
                 WebsocketEvent::Kline(msg) => (self.handler)(WebsocketEvent::Kline(msg))?,
                 WebsocketEvent::TradeDetail(msg) => (self.handler)(WebsocketEvent::TradeDetail(msg))?,
                 WebsocketEvent::SubStatus(msg) => { println!("### Sub Status {:?}", msg)},
