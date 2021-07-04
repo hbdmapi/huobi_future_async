@@ -199,6 +199,8 @@ impl Transport {
         let utctime = get_timestamp();
         query.push(("Timestamp".to_string(), utctime));
 
+        query.sort_by(|a,b| a.0.as_str().cmp(b.0.as_str()));
+
         let paramss = build_query_string(&query);
 
         let api_host = if endpoint == "/v1/futures/transfer" { SPOT_API_HOST } else { API_HOST };
